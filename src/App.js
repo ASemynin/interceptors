@@ -1,23 +1,28 @@
-import logo from './logo.svg';
 import './App.css';
+import api from './api';
+import axios from 'axios';
+
 
 function App() {
+
+      const handlerReg = async() => {
+          await axios.post('http://uni-team-inc.online:8080/register', 
+              JSON.stringify({
+                name:"Leonid",
+                email:"Leonid@.ru",
+                password:"Leonid",
+              })
+            )
+      }
+
+      const handler = async() => {
+        
+      }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <button onClick={() => handlerReg()}>Регистрация</button>
+        <button>Переход на страницу</button>
     </div>
   );
 }
