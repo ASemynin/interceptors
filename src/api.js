@@ -3,7 +3,7 @@ import Refresh from "./request"
 
 const api = axios.create()
 
-axios.interceptors.request.use(function (config) {
+api.interceptors.request.use(  config => {
     if(localStorage.getItem('access')){
         config.headers = {
             'Authorization':`Bearer ${localStorage.getItem('access')}`
@@ -11,14 +11,14 @@ axios.interceptors.request.use(function (config) {
     }
     return config;
 
-  }, error => {
+  },  error => {
         if(error.response.status === 401){
             Refresh()
         }}
   )
 
 
-axios.interceptors.response.use(function (response) {
+  api.interceptors.response.use(  response => {
     if(localStorage.getItem('access')){
         response.headers = {
             'Authorization':`Bearer ${localStorage.getItem('access')}`
@@ -26,9 +26,9 @@ axios.interceptors.response.use(function (response) {
     }
     return response;
 
-  }, error => {
+  }, async error => {
         if(error.response.status === 401){
-            Refresh()
+            await Refresh()
         }}
   )
 

@@ -2,13 +2,12 @@ import './App.css';
 import api from './api';
 import axios from 'axios';
 
-
 function App() {
 
       const handlerReg = async() => {
           await axios.post('http://uni-team-inc.online:8080/register', 
               JSON.stringify({
-                name:"Leonid2",
+                name:"Leo11ni1d3311212m3412das12133123101",
                 email:"Leonid@yandex.ru",
                 password:"Leonid"
               })
@@ -19,8 +18,8 @@ function App() {
             })
       }
 
-      const handlerKnock = async() => {
-        await api.get('http://uni-team-inc.online:8080/authorized')}
+      const handlerKnock = () => {
+         api.get('http://uni-team-inc.online:8080/authorized')}
 
   return (
     <div className="App">

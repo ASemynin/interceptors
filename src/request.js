@@ -4,7 +4,7 @@ async function Refresh () {
     await axios.get('http://uni-team-inc.online:8080/update', 
         {
             headers:{
-                'X-Refresh' : localStorage.getItem("refresh")
+                'X-Refresh' : `Bearer ${localStorage.getItem("refresh")}`
             }
         }
     )
