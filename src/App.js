@@ -1,8 +1,12 @@
-import './App.css';
 import api from './api';
 import axios from 'axios';
 
 function App() {
+
+      const adminCreateToy = "http://uni-team-inc.online:8000/admin/create"
+      const allToysView = "http://uni-team-inc.online:8000/see?archive=true"  // true - не видна, false - видна
+      const archiveToy = "http://uni-team-inc.online:8000/admin/archive/1"  // Архивируем игрушка
+      const oneToy = "http://uni-team-inc.online:8000/see/1"
 
       const handlerReg = async() => {
           await axios.post('http://uni-team-inc.online:8080/register', 
